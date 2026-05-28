@@ -1,0 +1,16 @@
+﻿using SIGO.Objects.Dtos.Entities;
+using SIGO.Objects.Models;
+using SIGO.Objects.Contracts;
+
+namespace SIGO.Services.Interfaces
+{
+    public interface IOficinaService : IGenericService<Oficina, OficinaDTO>
+    {
+        Task<IEnumerable<OficinaDTO>> GetByName(string nomeOficina);
+        Task ValidarCnpj(string? cnpj, int? ignoreId = null);
+        Task<OficinaDTO?> Login(Login login);
+        Task Create(OficinaRequestDTO oficinaDTO);
+        Task Update(OficinaRequestDTO oficinaDTO, int id);
+        Task UpdateSelfProfile(OficinaRequestDTO oficinaDTO, int id);
+    }
+}
